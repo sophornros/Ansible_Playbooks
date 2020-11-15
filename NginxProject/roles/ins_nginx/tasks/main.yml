@@ -1,5 +1,5 @@
 - name: nginx is installed
-  dnf:
+  yum:
     name: "{{ nginx_package }}"
     state: installed
   tags: install_nginx
