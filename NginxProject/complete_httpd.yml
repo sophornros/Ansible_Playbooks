@@ -3,14 +3,14 @@
    - name: Ping all host
      ping:
 
-   - name: reboot the servers
+   - name: subscription the servers
      command: subscription-manager register --username sophorn.ros --password P@ssw0rd --auto-attach --force
 
    - name: ensure apache is at the latest version
-     yum: name=httpd state=latest
-
-   - name: ensure apache is at the latest version
-     yum: name=httpd state=latest
+     yum: name=nginx state=latest
+   
+   - name: Enable Apache on System Boot and Start service
+     service: name=nginx state=started enabled=yes
 
    - name: Enable firewalld
      service: name=firewalld state=started enabled=yes
