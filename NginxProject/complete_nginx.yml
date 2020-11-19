@@ -7,7 +7,7 @@
      yum: name=nginx state=latest
      
    - name: stop apache on System Boot and Start service
-     service: name=httpd state=stop
+     service: name=httpd state=stopped
      
    - name: Enable nginx on System Boot and Start service
      service: name=nginx state=started enabled=yes
