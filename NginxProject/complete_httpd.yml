@@ -6,10 +6,10 @@
    - name: subscription the servers
      command: subscription-manager register --username sophorn.ros --password P@ssw0rd --auto-attach --force
 
-   - name: ensure apache is at the latest version
+   - name: ensure nginx is at the latest version
      yum: name=nginx state=latest
    
-   - name: Enable Apache on System Boot and Start service
+   - name: Enable nginx on System Boot and Start service
      service: name=nginx state=started enabled=yes
 
    - name: Enable firewalld
