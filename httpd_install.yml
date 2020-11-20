@@ -1,0 +1,20 @@
+- hosts: all
+  tasks:
+ 
+ - name: Register subscription on client servers
+     command: subscription-manager register --username sophorn.ros --password P@ssw0rd --auto-attach --force
+
+   - name: Install and ensure apache is at the latest version
+     yum: name=httpd state=latest
+
+   - name: Enable Apache on System Boot and Start service
+     service: name=httpd state=started enabled=yes
+
+   - name: Enable firewalld
+     service: name=firewalld state=started enabled=yes
+
+   - name: Allow http on firewall
+     command: firewall-cmd --permanent --add-service=https --add-service=http
+
+   - name: Reload Firewall
+     command: firewall-cmd --reload
